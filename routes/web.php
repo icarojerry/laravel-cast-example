@@ -11,8 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-});
 
-Route::get('/login');
+Route::get('/', 'PageController@home');
+
+
+Route::resource('tasklist', 'TaskListController');
+
+Route::resource('task', 'TaskController');
+// Route::get('/tasks', 'TaskController@index');
+// Route::get('/tasks/create', 'TaskController@create');
+// Route::get('/tasks/{id}', 'TaskController@show');
+// Route::post('/tasks/', 'TaskController@store');
+// Route::get('/tasks/{id}/edit', 'TaskController@edit');
+// Route::patch('/tasks/{id}', 'TaskController@update');
+// Route::delete('/tasks/{id}', 'TaskController@destroy);
