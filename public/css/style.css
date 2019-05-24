@@ -1,0 +1,78 @@
+body {
+  font-family: 'Lato';
+}
+
+.navbar-custom {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.navbar-custom .navbar-brand {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+}
+
+.navbar-custom .navbar-nav .nav-item .nav-link {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+
+div.main-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(7rem + 72px);
+  padding-bottom: 7rem;
+}
+
+div.main-section .main-section-content {
+  z-index: 1;
+  position: relative;
+}
+
+div.main-section .bg-circle {
+  z-index: 0;
+  position: absolute;
+  border-radius: 100%;
+}
+
+@media (min-width: 992px) {
+  div.main-section {
+    padding-top: calc(10rem + 55px);
+    padding-bottom: 10rem;
+  }
+}
+
+.bg-primary {
+	background-color: #505050;
+}
+
+.bg-second {
+	background-color: #868686;
+}
+
+.bg-blue {
+  background-color: #48b1ff;
+}
+
+.title {
+	color: black;
+}
+
+.sub-title {
+	color: gray;
+}
+
+.btn-primary {
+  background-color: #ee0979;
+  border-color: #ee0979;
+}
+
+footer {
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+}

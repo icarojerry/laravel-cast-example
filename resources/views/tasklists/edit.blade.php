@@ -9,11 +9,11 @@
 		@csrf
 		
 		<div>
-			<input type="text" name="title" placeholder="Task Title">
+			<input type="text" name="title" placeholder="Task Title" required value="{{ old('title') }}">
 		</div>
 
 		<div>
-			<textarea name="description" placeholder="Description"></textarea>
+			<textarea name="description" placeholder="Description" required value="{{ old('description') }}></textarea>
 		</div>
 
 		<div>

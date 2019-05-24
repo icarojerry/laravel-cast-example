@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'TODO List Manager'),
+    'name' => env('APP_NAME', 'Project Manager'),
 
     /*
     |--------------------------------------------------------------------------
