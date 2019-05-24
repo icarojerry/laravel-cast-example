@@ -18,3 +18,7 @@ Route::get('/', 'PageController@home');
 Route::resource('tasklist', 'TaskListController');
 
 Route::resource('task', 'TaskController');
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
