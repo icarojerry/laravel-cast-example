@@ -12,13 +12,13 @@
 */
 
 
-Route::get('/', 'PageController@home');
+Route::get('/', 'WelcomeController@index');
+Route::get('/home', 'ProjectController@index')->name('projects');
 
 
-Route::resource('tasklist', 'TaskListController');
+Route::resource('projects', 'ProjectController');
 
-Route::resource('task', 'TaskController');
+Route::resource('tasks', 'TaskProjectController');
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
