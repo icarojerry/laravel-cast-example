@@ -15,7 +15,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::where('owner_id', auth()->id())->get();
         $username = auth()->user()->name;
 
     	return view('projects.index', compact('projects'), compact('username'));
@@ -28,17 +28,21 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        $created = Project::create(request()->validate([
+        $attr = ['owner_id' => auth()->id()];
+
+        $attr += request()->validate([
             'title' => 'required|min:3|max:15',
-            'description' => 'required|min:5|max:400']
-        ));
+            'description' => 'required|min:5|max:400'
+        ]);
+
+        $created = Project::create($attr);
 
     	return $this->show($created);
     }
 
     public function show(Project $project)
     {
-        
+        $this->authorize('update', $project);
         return view('projects.show', compact('project'));
     }
 
@@ -52,12 +56,12 @@ class ProjectController extends Controller
     {
         Project::update(request(['title', 'description']));
 
-        return $this->index(); // redirect('/project');
+        return $this->index();
     }
 
     public function destroy(Project $project)
     {
-        $project->$id;
+        $project->delete();
         
         return $this->index();
     }

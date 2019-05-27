@@ -16,6 +16,8 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="{{ asset('css/jquery.m.toast.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+@yield('extension_styles')

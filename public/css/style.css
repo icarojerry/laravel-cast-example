@@ -75,7 +75,22 @@ div.main-section .bg-circle {
 
 .bg-second, .btn-second {
   background-color: #f1f1f1;
+  border-color: #f1f1f1;
+
 }
+
+.bg-danger, .btn-danger {
+  background-color: #f44242;
+  border-color: #f44242;
+
+}
+
+.bg-warning, .btn-warning {
+  background-color: #ffe649;
+  border-color: #ffe649;
+
+}
+
 
 .full {
   width: 100%;

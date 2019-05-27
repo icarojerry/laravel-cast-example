@@ -3,11 +3,7 @@
 
 @section('content')
 	<h3>
-		{{ $username }} :: TODO List :: {{ $tasklist->title }} :: TASK {{ $task->name }}
+		SHOW
 	</h3>
-
-	<div>
-			{{ $tasklist->description }}
-	</div>
 
 @endsection

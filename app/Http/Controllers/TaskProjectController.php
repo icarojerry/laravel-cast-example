@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TaskProject;
+use App\Project;
+
 
 class TaskProjectController extends Controller
 {
@@ -15,9 +17,9 @@ class TaskProjectController extends Controller
         return view('tasks.index', compact('tasks'));
     }
 
-    public function create()
+    public function create(Project $project)
     {
-        return view('tasklists.create');
+        return view('tasks.create', compact('project'));
     }
 
     public function store(Project $project)
@@ -39,11 +41,11 @@ class TaskProjectController extends Controller
     }
 
   
-    public function update(Request $request, $id)
+    public function update(Request $request, TaskProject $task)
     {
-        TaskProject::update(request(['title', 'description']));
+        $taskUpdated = $task::update(request(['title', 'description']));
 
-        return $this->index(); // redirect('/tasklist');
+        return $this->show($taskUpdated);
     }
 
     public function destroy(TaskProject $task)
