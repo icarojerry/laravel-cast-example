@@ -18,6 +18,12 @@
 				</th>
 			</tr>
 		@else
+    		<thead>
+    			<tr>
+    				<th style="min-width: 75%; width: 75%;">Title</th>
+    				<th>Actions</th>
+    			</tr>
+    		</thead>
 			<tbody>
 	            @foreach ($projects  as $project)
 	            	<tr>
@@ -28,12 +34,17 @@
 	      				</th>
 	      				<th>
 	      					<div class="row">
-								<div class=" col-sm-6">
+								<div class=" col-sm-4">
+	      							<a class="btn btn-primary" href="/projects/{{ $project->id }}">
+	      								<i class="fa fa-eye"></i>
+	      							</a> 
+								</div>
+								<div class=" col-sm-4">
 	      							<a class="btn btn-warning" href="/projects/{{ $project->id }}/edit">
 	      								<i class="fa fa-pencil"></i>
 	      							</a> 
 								</div>
-								<div class=" col-sm-6">
+								<div class=" col-sm-4">
 								    <form method="POST" action="/projects/{{ $project->id }}">
 										@method('DELETE')
 										@csrf
@@ -47,15 +58,14 @@
 	      			</tr>
 				@endforeach
     		</tbody>
-    		<thead>
-    			<tr>
-    				<th style="min-width: 80%; width: 80%;">Title</th>
-    				<th>Actions</th>
-    			</tr>
-    		</thead>
 		@endif
 	</table>
-	<a class="btn btn-primary" href="/projects/create">
-		<i class="fa fa-plus"></i>  Create New Project
-	</a>
+@endsection
+
+@section('content-projects-footer')
+	<div>
+		<a class="btn btn-primary" href="/projects/create">
+			<i class="fa fa-plus"></i>  Create New Project
+		</a>
+	</div>
 @endsection

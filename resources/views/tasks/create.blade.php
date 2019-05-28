@@ -8,8 +8,8 @@
 		@csrf
 		
 		<div class="form-group row">
-		    <label for="title" class="col-sm-2">Name</label>
-		    <input type="text" class="form-control col-sm-10" id="title" name="title" placeholder="Enter task name" required>
+		    <label for="name" class="col-sm-2">Name</label>
+		    <input type="text" class="form-control col-sm-10" id="taskName" name="name" placeholder="Enter task name" required>
 		</div>
 		
 		<div class="form-group row">
@@ -18,13 +18,13 @@
 		</div>
 
 		<div class="form-group row">
-		  <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date </label>
-		  <input class="form-control col-sm-10" type="datetime-local" value="{{date('Y-m-d')}}T00:00:00" id="example-datetime-local-input" required>
+		  <label for="dueDate" class="col-sm-2 col-form-label">Date </label>
+		  <input class="form-control col-sm-10" type="datetime-local" name="dueDate" value="{{date('Y-m-d')}}T00:00:00" id="Date" required>
 		</div>
 
 		<div class="form-group row">
-		    <label for="description" class="col-sm-2">Priority</label>
-		    <input class="form-control col-sm-10" type="number" value="1" id="example-number-input" required>
+		    <label for="priority" class="col-sm-2">Priority</label>
+		    <input class="form-control col-sm-10" name="priority" type="number" value="1" id="example-number-input" required>
 		</div>
 
 		<div class="row">

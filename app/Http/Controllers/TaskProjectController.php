@@ -10,6 +10,11 @@ use App\Project;
 class TaskProjectController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $tasks = TaskProject::all();
@@ -22,9 +27,18 @@ class TaskProjectController extends Controller
         return view('tasks.create', compact('project'));
     }
 
-    public function store(Project $project)
+    public function store(TaskProject $task, Project $project, Request $request)
     {
-        $project->addTask(request(['description' => 'required|min:5|max:400']));
+
+        $attr = request()->validate([
+            'name' => 'required|min:3|max:15',
+            'description' => 'required|min:5|max:400'
+        ]);
+
+        $attr['priority'] = $request->priority;
+        $attr['dueDate'] = $request->dueDate;
+
+        $project->addTask($attr);
 
         return back();
     }

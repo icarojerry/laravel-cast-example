@@ -21,7 +21,7 @@ class CreateTasksTable extends Migration
             $table->dateTime('dueDate');
             $table->unsignedInteger('priority');
             $table->boolean('completed')->default(false);
-            $table->dateTime('closeDate');
+            $table->dateTime('closeDate')->nullable();
             $table->timestamps();
         });
     }

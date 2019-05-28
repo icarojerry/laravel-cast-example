@@ -1,33 +1,19 @@
-@extends('projects.layout')
+@extends('projects.form')
 
-@section('title', 'New Project')
-@section('title-projects', 'Edit Project '. 'PROJECT NAME')
+@section('title-projects', 'Edit Project')
 
-@section('content-projects')
-	<form method="POST" action="/project/{{ $project->id }}">
-		@method('PATCH')
-		@csrf
-		
-		<div>
-			<input type="text" name="title" placeholder="Task Title" required value="{{ old('title') }}">
-		</div>
+@section('project-form-action')/projects/{{ $project->id }}@endsection
 
-		<div>
-			<textarea name="description" placeholder="Description" required value="{{ old('description') }}"></textarea>
-		</div>
+@section('project-form-method')
+	@method('PATCH')
+@endsection
 
-		<div>
-			<button type="submit">Update Project</button>
-		</div>
-	</form>
+@section('project-form-title-default')
+	value="{{ old('title', $project->title) }}"
+@endsection
 
-	<form method="POST" action="/project/{{ $project->id }}">
-		@method('DELETE')
-		@csrf
+@section('project-form-description-default'){{ old('description', $project->description) }}@endsection
 
-		<div>
-			<button type="submit">Delete Project</button>
-		</div>
-	</form>
-
+@section('project-form-submit-btn')
+	<i class="fa fa-floppy-o"></i> Save
 @endsection

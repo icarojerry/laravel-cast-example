@@ -28,12 +28,12 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        $attr = ['owner_id' => auth()->id()];
-
-        $attr += request()->validate([
+        $attr = request()->validate([
             'title' => 'required|min:3|max:15',
             'description' => 'required|min:5|max:400'
         ]);
+
+        $attr['owner_id'] = auth()->id();
 
         $created = Project::create($attr);
 
@@ -43,18 +43,20 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $this->authorize('update', $project);
+
         return view('projects.show', compact('project'));
     }
 
     public function edit(Project $project)
     {
+        $this->authorize('update', $project);
 
         return view('projects.edit', compact('project'));
     }
 
     public function update(Project $project)
     {
-        Project::update(request(['title', 'description']));
+        $project->update(request(['title', 'description']));
 
         return $this->index();
     }

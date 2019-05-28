@@ -8,7 +8,7 @@ class TaskProject extends Model
 {
     
     protected $fillable = [
-        'title', 'description', 'dueDate', 'priority', 'completed'
+        'name', 'description', 'dueDate', 'priority', 'completed'
     ];
 
     protected $table = 'taskprojects';
