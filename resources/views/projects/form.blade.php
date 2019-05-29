@@ -5,6 +5,7 @@
 	<form method="POST" action="@yield('project-form-action')">
 		@csrf
 		@yield('project-form-method')
+
 		<div class="form-group row">
 		    <label for="title" class="col-sm-2">Project Title</label>
 		    <input type="text" class="form-control col-sm-10" id="title" name="title" placeholder="Enter project title" required @yield('project-form-title-default')>

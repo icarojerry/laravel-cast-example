@@ -3,7 +3,9 @@
 @section('title', 'Projects')
 @section('title-projects', $username.'\'s Projects')
 
+
 @section('content-projects')
+
     @if (session('status'))
         <div class="alert alert-success" role="alert">
             {{ session('status') }}
@@ -24,13 +26,11 @@
     				<th>Actions</th>
     			</tr>
     		</thead>
-			<tbody>
+			<tbody class="text-justify">
 	            @foreach ($projects  as $project)
 	            	<tr>
 	      				<th scope="row" >
-	      					<a href="/projects/{{ $project->id }}">
-								{{ $project->title }}
-							</a>
+							{{ $project->title }}
 	      				</th>
 	      				<th>
 	      					<div class="row">

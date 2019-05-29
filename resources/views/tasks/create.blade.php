@@ -4,7 +4,7 @@
 @section('title-projects', 'New Task to '. $project->title)
 
 @section('content-projects')
-    <form method="POST" action="/tasks">
+    <form method="POST" action="/projects/{{ $project->id }}/tasks">
 		@csrf
 		
 		<div class="form-group row">

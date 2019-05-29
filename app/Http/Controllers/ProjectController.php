@@ -37,7 +37,9 @@ class ProjectController extends Controller
 
         $created = Project::create($attr);
 
-    	return $this->show($created);
+        $request->session()->flash('message-result', 'Your project has been created!');
+
+    	return redirect('/projects/'.$created->id);
     }
 
     public function show(Project $project)
@@ -54,17 +56,21 @@ class ProjectController extends Controller
         return view('projects.edit', compact('project'));
     }
 
-    public function update(Project $project)
+    public function update(Project $project, Request $request)
     {
         $project->update(request(['title', 'description']));
+
+        $request->session()->flash('message-result', 'Your project has been updated!');
 
         return $this->index();
     }
 
-    public function destroy(Project $project)
+    public function destroy(Project $project, Request $request)
     {
         $project->delete();
+
+        $request->session()->flash('message-result', 'Your project has been deleted!');
         
-        return $this->index();
+        return redirect('/projects');
     }
 }

@@ -22,12 +22,12 @@ class TaskProjectController extends Controller
         return view('tasks.index', compact('tasks'));
     }
 
-    public function create(Project $project)
+    public function create(Project $project, TaskProject $task, Request $request)
     {
         return view('tasks.create', compact('project'));
     }
 
-    public function store(TaskProject $task, Project $project, Request $request)
+    public function store(Project $project, TaskProject $task, Request $request)
     {
 
         $attr = request()->validate([
@@ -40,12 +40,14 @@ class TaskProjectController extends Controller
 
         $project->addTask($attr);
 
-        return back();
+        $request->session()->flash('message-result', 'Task was added to project '.$project->title.'!');
+
+        return redirect('/projects/'.$project->id);
     }
 
-    public function show(TaskProject $task)
+    public function show(Project $project, TaskProject $task)
     {
-        return view('tasks.show', compact('task'));
+        return view('tasks.show', compact('project'), compact('task'));
     }
 
 
@@ -55,17 +57,25 @@ class TaskProjectController extends Controller
     }
 
   
-    public function update(Request $request, TaskProject $task)
+    public function update(Project $project, TaskProject $task, Request $request)
     {
-        $taskUpdated = $task::update(request(['title', 'description']));
+        $attr = request(['name', 'description', 'priority', 'dueDate']);
 
-        return $this->show($taskUpdated);
+        $attr['completed'] = request()->has('completed');
+
+        $task->update($attr);
+
+        $request->session()->flash('message-result', 'Task was updated!');
+
+        return redirect('/projects/'.$project->id);
     }
 
-    public function destroy(TaskProject $task)
+    public function destroy(Project $project, TaskProject $task, Request $request)
     {
         $task->delete();
-        
-        return back();
+
+        $request->session()->flash('message-result', 'Task was removed!');
+
+        return redirect('/projects/'.$project->id);
     }
 }

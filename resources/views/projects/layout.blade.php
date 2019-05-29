@@ -3,6 +3,20 @@
 @section('content')
 	<div class="container">
 	    <div class="row justify-content-center">
+	    	
+	    	@if (session('message-result'))
+				<div id="message-toast" class="toast toast-success" data-autohide="true" aria-atomic="true" data-delay="1000">
+					<div class="toast-body">
+						{{ session('message-result') }}
+					</div>
+				</div>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('#message-toast').toast('show');
+					});
+				</script>
+			@endif
+
 	        <div class="col-md-10">
 	            <div class="card">
 	                <div class="card-header">

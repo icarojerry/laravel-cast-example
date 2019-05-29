@@ -1,29 +1,35 @@
 1. Estudar Laravel (Laracast) [DONE]
+
+
 2. Desenvolver uma aplicação Laravel + Mysql (TODO list com cadastro de usuários) [IN PROGRESS]
 	> Cadastro Usuário [DONE]
 	> Login Usuário [DONE]
-	> Uso de Middleware
-	> Gerenciar Projetos
+	> Uso de Middleware [DONE]
+	> Gerenciar Projetos [DONE]
 		> Create [DONE]
-		> Read
-		> Update
-		> Delete
+		> Read   [DONE]
+		> Update [DONE]
+		> Delete [DONE]
 	> Gerenciar Atividades
-		> Create
-		> Read
-		> Update
-		> Delete
+		> Create [DONE]
+		> Read [DONE]
+		> Update [DONE]
+			> Marcar como (in)completa [DONE]
+			> Editar informações da Tarefa [DONE]
+		> Delete [DONE]
 	> Politica de Acesso
-	> Debugging com Telescope
-	> Envio de E-mail
+	> Debugging com Telescope [DONE]
+	> Envio de E-mail [DONE]
 	> Envio de Notificação
-	> Event & Liss
+	> Event & Listeners
 	> Teste Unitário
+
+
 3. Desenvolver uma aplicação usando a API do Escavador
     a. Poder realziar busca
     b. Ver pessoas e empresas
     c. Criar e deletar monitoramentos
     d. Ver processo no tribunal
     
-4. Refatoração da documentação (Usar o laravel apidoc e se rpecisar fazer Pull request)
+4. Refatoração da documentação (Usar o laravel apidoc e se precisar fazer Pull request)
 5. Criar alguns testes na API (Acessar rotas e validar que veio algumas colunas)
