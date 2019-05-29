@@ -27,16 +27,26 @@ class TaskProjectController extends Controller
         return view('tasks.create', compact('project'));
     }
 
+
+    public function show(Project $project, TaskProject $task)
+    {
+        return view('tasks.show', compact('project'), compact('task'));
+    }
+
+    public function edit(TaskProject $task)
+    {
+        return view('tasks.edit', compact('task'));
+    }
+
     public function store(Project $project, TaskProject $task, Request $request)
     {
 
         $attr = request()->validate([
             'name' => 'required|min:3|max:15',
-            'description' => 'required|min:5|max:400'
+            'description' => 'required|min:5|max:400',
+            'priority' => 'required',
+            'dueDate' => 'required'
         ]);
-
-        $attr['priority'] = $request->priority;
-        $attr['dueDate'] = $request->dueDate;
 
         $project->addTask($attr);
 
@@ -44,22 +54,15 @@ class TaskProjectController extends Controller
 
         return redirect('/projects/'.$project->id);
     }
-
-    public function show(Project $project, TaskProject $task)
-    {
-        return view('tasks.show', compact('project'), compact('task'));
-    }
-
-
-    public function edit(TaskProject $task)
-    {
-        return view('tasks.edit', compact('task'));
-    }
-
   
     public function update(Project $project, TaskProject $task, Request $request)
     {
-        $attr = request(['name', 'description', 'priority', 'dueDate']);
+        $attr = request()->validate([
+            'name' => 'required|min:3|max:15',
+            'description' => 'required|min:5|max:400',
+            'priority' => 'required',
+            'dueDate' => 'required'
+        ]);
 
         $attr['completed'] = request()->has('completed');
 

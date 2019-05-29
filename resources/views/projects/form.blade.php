@@ -2,13 +2,13 @@
 
 
 @section('content-projects')
-	<form method="POST" action="@yield('project-form-action')">
+	<form method="POST" @yield('project-form-action') >
 		@csrf
 		@yield('project-form-method')
 
 		<div class="form-group row">
 		    <label for="title" class="col-sm-2">Project Title</label>
-		    <input type="text" class="form-control col-sm-10" id="title" name="title" placeholder="Enter project title" required @yield('project-form-title-default')>
+		    <input type="text" class="form-control col-sm-10 was-validated" id="title" name="title" placeholder="Enter project title" required @yield('project-form-title-default')>
 		</div>
 		
 		<div class="form-group row">
@@ -28,7 +28,7 @@
 
 			<div class="col-sm-4">
 				<a class="btn btn-second full" href="/home">
-					Go Back
+					<i class="fa fa-arrow-left"></i> Go Back
 				</a>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 @extends('projects.layout')
 
 @section('content-projects')
-    <form method="POST" action="@yield('task-form-action')">
+    <form method="POST" @yield('task-form-action') >
 		@csrf
 		@yield('task-form-method')
 
@@ -36,10 +36,12 @@
 			
 			<div class="col-sm-4">
 				<a class="btn btn-second full" href="/projects/{{ $project->id}}">
-					Go Back
+					<i class="fa fa-arrow-left"></i> Go Back
 				</a>
 			</div>
 
 		</div>
 	</form>
+
+
 @endsection

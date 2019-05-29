@@ -10,6 +10,9 @@
 		> Read   [DONE]
 		> Update [DONE]
 		> Delete [DONE]
+		> Duas camadas de validação
+			> Cliente [OK]
+			> Servidor
 	> Gerenciar Atividades
 		> Create [DONE]
 		> Read [DONE]
@@ -17,12 +20,18 @@
 			> Marcar como (in)completa [DONE]
 			> Editar informações da Tarefa [DONE]
 		> Delete [DONE]
-	> Politica de Acesso
+		> Duas camadas de validação [DONE]
+			> Cliente [OK]
+			> Servidor
+	> Politica de Acesso [DONE]
 	> Debugging com Telescope [DONE]
 	> Envio de E-mail [DONE]
 	> Envio de Notificação
 	> Event & Listeners
-	> Teste Unitário
+	> Testes  [DONE]
+		> Conceito TDD [DONE]
+		> Feature [DONE]
+		> Unitário [DONE]
 
 
 3. Desenvolver uma aplicação usando a API do Escavador

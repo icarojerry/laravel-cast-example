@@ -2,7 +2,7 @@
 
 @section('title-projects', 'Edit Task')
 
-@section('task-form-action')/projects/{{ $project->id }}/tasks@endsection
+@section('task-form-action')action="/projects/{{ $project->id }}/tasks"@endsection
 
 @section('task-form-method')
 	@method('PATCH')

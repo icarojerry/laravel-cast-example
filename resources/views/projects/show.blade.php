@@ -84,7 +84,7 @@
 		
 		<div class="col-sm-5">
 			<a class="btn btn-second full" href="/home">
-				Go Back
+				<i class="fa fa-arrow-left"></i> Go Back
 			</a>
 		</div>
 	</div>

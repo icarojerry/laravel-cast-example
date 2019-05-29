@@ -18,8 +18,6 @@ Route::get('/home', 'ProjectController@index')->name('projects');
 
 Route::resource('projects', 'ProjectController');
 
-Route::resource('tasks', 'TaskProjectController');
-
 Route::get('/projects/{project}/tasks/create', 'TaskProjectController@create');
 Route::get('/projects/{project}/tasks/{task}', 'TaskProjectController@show');
 Route::post('/projects/{project}/tasks', 'TaskProjectController@store');
