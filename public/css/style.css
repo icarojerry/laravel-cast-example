@@ -123,6 +123,18 @@ div.main-section .bg-circle {
     border-color: #f5c6cb;;
 }
 
+.error-panel {
+  margin-top: 20px;
+}
+
+.has-error {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ff8080;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem  #ff808085;
+}
+
 footer {
 	bottom: 0;
 	position: fixed;

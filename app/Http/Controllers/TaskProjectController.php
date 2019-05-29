@@ -41,12 +41,7 @@ class TaskProjectController extends Controller
     public function store(Project $project, TaskProject $task, Request $request)
     {
 
-        $attr = request()->validate([
-            'name' => 'required|min:3|max:15',
-            'description' => 'required|min:5|max:400',
-            'priority' => 'required',
-            'dueDate' => 'required'
-        ]);
+        $attr = $this->validateTask();
 
         $project->addTask($attr);
 
@@ -57,12 +52,7 @@ class TaskProjectController extends Controller
   
     public function update(Project $project, TaskProject $task, Request $request)
     {
-        $attr = request()->validate([
-            'name' => 'required|min:3|max:15',
-            'description' => 'required|min:5|max:400',
-            'priority' => 'required',
-            'dueDate' => 'required'
-        ]);
+        $attr = $this->validateTask();
 
         $attr['completed'] = request()->has('completed');
 
@@ -80,5 +70,14 @@ class TaskProjectController extends Controller
         $request->session()->flash('message-result', 'Task was removed!');
 
         return redirect('/projects/'.$project->id);
+    }
+
+    protected function validateTask() {
+        return $attr = request()->validate([
+            'name' => 'required|min:3|max:15',
+            'description' => 'required|min:5|max:400',
+            'priority' => 'required',
+            'dueDate' => 'required'
+        ]);
     }
 }

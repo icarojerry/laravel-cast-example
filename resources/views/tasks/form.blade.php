@@ -7,16 +7,16 @@
 
 		<div class="form-group row">
 		    <label for="name" class="col-sm-2">Name</label>
-		    <input type="text" class="form-control col-sm-10" id="taskName" name="name" placeholder="Enter task name" required @yield('task-form-name-default')>
+		    <input type="text" class="form-control col-sm-10 {{ old('name')?  'has-error': '' }}" id="taskName" name="name" placeholder="Enter task name" required @yield('task-form-name-default')>
 		</div>
 		
 		<div class="form-group row">
 		    <label for="description" class="col-sm-2">Description</label>
-		    <textarea type="password" class="form-control col-sm-10" id="description" name="description" placeholder="Enter task description" required>@yield('task-form-description-default')</textarea>
+		    <textarea type="password" class="form-control col-sm-10 {{ old('description')?  'has-error': '' }}" id="description" name="description" placeholder="Enter task description" required>@yield('task-form-description-default')</textarea>
 		</div>
 
 		<div class="form-group row">
-		  <label for="dueDate" class="col-sm-2 col-form-label">Date </label>
+		  <label for="dueDate" class="col-sm-2 col-form-label {{ old('date')?  'has-error': '' }}">Date </label>
 		  <input class="form-control col-sm-10" type="datetime-local" name="dueDate" @yield('task-form-duedate-default') id="Date" required>
 		</div>
 

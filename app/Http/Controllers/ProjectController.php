@@ -15,10 +15,10 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::where('owner_id', auth()->id())->get();
-        $username = auth()->user()->name;
-
-    	return view('projects.index', compact('projects'), compact('username'));
+    	return view('projects.index', [
+            'projects' => auth()->user()->projects,
+            'username' => auth()->user()->name
+        ]);
     }
 
     public function create()
@@ -28,10 +28,7 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        $attr = request()->validate([
-            'title' => 'required|min:3|max:15',
-            'description' => 'required|min:5|max:400'
-        ]);
+        $attr = $this->validateProject();
 
         $attr['owner_id'] = auth()->id();
 
@@ -58,7 +55,7 @@ class ProjectController extends Controller
 
     public function update(Project $project, Request $request)
     {
-        $project->update(request(['title', 'description']));
+        $project->update($this->validateProject());
 
         $request->session()->flash('message-result', 'Your project has been updated!');
 
@@ -72,5 +69,12 @@ class ProjectController extends Controller
         $request->session()->flash('message-result', 'Your project has been deleted!');
         
         return redirect('/projects');
+    }
+
+    protected function validateProject() {
+        return $attr = request()->validate([
+            'title' => 'required|min:3|max:15',
+            'description' => 'required|min:5|max:400'
+        ]);
     }
 }

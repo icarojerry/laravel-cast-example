@@ -1,37 +1,36 @@
-1. Estudar Laravel (Laracast) [DONE]
-
+1. Estudar Laravel (Laracast)
 
 2. Desenvolver uma aplicação Laravel + Mysql (TODO list com cadastro de usuários) [IN PROGRESS]
-	> Cadastro Usuário [DONE]
-	> Login Usuário [DONE]
-	> Uso de Middleware [DONE]
-	> Gerenciar Projetos [DONE]
-		> Create [DONE]
-		> Read   [DONE]
-		> Update [DONE]
-		> Delete [DONE]
+	> Cadastro Usuário
+	> Login Usuário
+	> Uso de Middleware
+	> Gerenciar Projetos
+		> Create
+		> Read  
+		> Update
+		> Delete
 		> Duas camadas de validação
-			> Cliente [OK]
+			> Cliente
 			> Servidor
 	> Gerenciar Atividades
-		> Create [DONE]
-		> Read [DONE]
-		> Update [DONE]
-			> Marcar como (in)completa [DONE]
-			> Editar informações da Tarefa [DONE]
-		> Delete [DONE]
-		> Duas camadas de validação [DONE]
-			> Cliente [OK]
+		> Create
+		> Read
+		> Update
+			> Marcar como (in)completa
+			> Editar informações da Tarefa
+		> Delete
+		> Duas camadas de validação
+			> Cliente
 			> Servidor
-	> Politica de Acesso [DONE]
-	> Debugging com Telescope [DONE]
-	> Envio de E-mail [DONE]
+	> Politica de Acesso
+	> Debugging com Telescope
+	> Envio de E-mail
 	> Envio de Notificação
 	> Event & Listeners
-	> Testes  [DONE]
-		> Conceito TDD [DONE]
-		> Feature [DONE]
-		> Unitário [DONE]
+	> Testes 
+		> Conceito TDD
+		> Feature
+		> Unitário
 
 
 3. Desenvolver uma aplicação usando a API do Escavador
