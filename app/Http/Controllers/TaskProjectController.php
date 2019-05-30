@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TaskProject;
 use App\Project;
-
+use App\Events\TaskCompleted;
 
 class TaskProjectController extends Controller
 {
@@ -58,6 +58,10 @@ class TaskProjectController extends Controller
 
         $task->update($attr);
 
+        //If the task was completed, emit TaskCompleted event
+        if($attr['completed'])
+            event(new TaskCompleted($task));
+
         $request->session()->flash('message-result', 'Task was updated!');
 
         return redirect('/projects/'.$project->id);
@@ -73,6 +77,10 @@ class TaskProjectController extends Controller
     }
 
     protected function validateTask() {
+        //Request to mark as completed (or not)
+        if(!request()->has(['name', 'description', 'priority', 'dueDate']))
+            return request()->all();
+
         return $attr = request()->validate([
             'name' => 'required|min:3|max:15',
             'description' => 'required|min:5|max:400',
