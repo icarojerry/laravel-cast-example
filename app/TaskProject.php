@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Project;
+use App\Events\TaskCreated;
 use Illuminate\Database\Eloquent\Model;
 
 class TaskProject extends Model
@@ -20,6 +21,10 @@ class TaskProject extends Model
 
     protected $fillable = [
         'name', 'description', 'dueDate', 'priority', 'completed'
+    ];
+
+    protected $dispatchesEvents = [
+        'created' => TaskCreated::class
     ];
 
     protected $table = 'taskprojects';

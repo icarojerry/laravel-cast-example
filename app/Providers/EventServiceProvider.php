@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\TaskCompleted;
+use App\Events\TaskCreated;
 use App\Listeners\SendTaskCompletedNotification;
+use App\Listeners\SendTaskCreatedNotification;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -23,7 +25,11 @@ class EventServiceProvider extends ServiceProvider
 
         TaskCompleted::class => [
             SendTaskCompletedNotification::class
-        ]
+        ],
+
+        TaskCreated::class => [
+            SendTaskCreatedNotification::class
+        ],
     ];
 
     /**

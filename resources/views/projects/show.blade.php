@@ -72,7 +72,9 @@
 			</tbody>
 		@endif
 	</table>
-	
+@endsection
+
+@section('content-projects-footer')
 	<div class="row">
 		<div class=" col-sm-5">
 			<a class="btn btn-primary full" href="/projects/{{$project->id}}/tasks/create">
@@ -88,5 +90,4 @@
 			</a>
 		</div>
 	</div>
-
 @endsection
